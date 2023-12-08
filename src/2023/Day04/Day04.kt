@@ -36,29 +36,15 @@ fun main() {
         }
 
         return map.values.sum()
-
-
-
-
-//        cards.forEach {
-//            return cards.sumOf { card ->
-//                val numWins = card.winningNumbers.fold(0) { acc, winningNumber ->
-//                    if (card.cardNumbers.contains(winningNumber)) acc + 1 else acc
-//                }
-//                println(card.index)
-//                println(if (numWins == 0) 0.toDouble() else 2.toDouble().pow(numWins - 1))
-//                if (numWins == 0) 0.toDouble() else 2.toDouble().pow(numWins - 1)
-//            }.toInt()
-//        }
     }
 
     val testInput = readInput("${dayString}_test")
     val input = readInput("$dayString")
 
-//    part1(testInput).println()
-//    part1(input).println()
+    part1(testInput).println()
+    part1(input).println()
 
-//    part2(testInput).println()
+    part2(testInput).println()
     part2(input).println()
 }
 
@@ -67,10 +53,6 @@ fun parseInput(input: List<String>): List<ScratchCard> {
     input.forEach {
         val (index, winningStr, cardNumbersStr) =
             Regex("""Card\s+(\d+):\s+([0-9 ]+)\|\s+([0-9 ]+)""").matchEntire(it)!!.destructured
-
-//        index.println()
-//        winningStr.println()
-//        cardNumbersStr.println()
 
         list.add(
             ScratchCard(
