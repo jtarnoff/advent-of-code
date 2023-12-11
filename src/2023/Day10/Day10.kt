@@ -31,13 +31,20 @@ fun parseInput(input: List<String>) {
 class Point2D(x: Int, y: Int, pipes: Char) {
     val x: Int = x
     val y: Int = y
-    val pipes: Byte = getPipesFromChar(pipes) // Up, Down, Left, Right
+    val pipes: Int = getPipeFromChar(pipes) // Up, Down, Left, Right
 
-    fun getPipesFromChar(pipesChar: Char): Byte {
+    fun getPipeFromChar(pipesChar: Char): Int {
         when (pipesChar) {
-            '|' -> "1100"
+            '|' -> 12 // 1100
+            '-' -> 3 // 0011
+            'F' -> 5 // 0101
+            'L' -> 7 // 1001
+            '7' -> 6 // 0110
+            'J' -> 10 // 1010
+            '.' -> 0
+            'S' -> 15
         }
 
-        return 0.toByte()
+        return 0
     }
 }
