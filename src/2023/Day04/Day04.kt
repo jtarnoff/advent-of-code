@@ -41,10 +41,10 @@ fun main() {
     val testInput = readInput("${dayString}_test")
     val input = readInput("$dayString")
 
-//    part1(testInput).println()
-//    part1(input).println()
+    part1(testInput).println()
+    part1(input).println()
 
-//    part2(testInput).println()
+    part2(testInput).println()
     part2(input).println()
 }
 
