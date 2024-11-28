@@ -7,6 +7,10 @@ const val dayString = "Day10"
 
 fun main() {
     fun part1(input: List<String>): Int {
+        val grid = parseInput(input)
+
+        grid.println()
+
         return input.size
     }
 
@@ -24,27 +28,30 @@ fun main() {
 //    part2(input).println()
 }
 
-fun parseInput(input: List<String>) {
-
+fun parseInput(input: List<String>): List<List<Point2D>> {
+    return input.mapIndexed { y, str ->
+        str.mapIndexed { x, chr ->
+            Point2D(x, y, getPipeFromChar(chr))
+        }
+    }
 }
 
-class Point2D(x: Int, y: Int, pipes: Char) {
+class Point2D(x: Int, y: Int, pipe: Int) {
     val x: Int = x
     val y: Int = y
-    val pipes: Int = getPipeFromChar(pipes) // Up, Down, Left, Right
+    val pipe: Int = pipe
+}
 
-    fun getPipeFromChar(pipesChar: Char): Int {
-        when (pipesChar) {
-            '|' -> 12 // 1100
-            '-' -> 3 // 0011
-            'F' -> 5 // 0101
-            'L' -> 7 // 1001
-            '7' -> 6 // 0110
-            'J' -> 10 // 1010
-            '.' -> 0
-            'S' -> 15
-        }
-
-        return 0
+fun getPipeFromChar(pipesChar: Char): Int { // Up, Down, Left, Right
+    return when (pipesChar) {
+        '|' -> 12 // 1100
+        '-' -> 3 // 0011
+        'F' -> 5 // 0101
+        'L' -> 7 // 1001
+        '7' -> 6 // 0110
+        'J' -> 10 // 1010
+        '.' -> 0
+        'S' -> 15
+        else -> 0
     }
 }
